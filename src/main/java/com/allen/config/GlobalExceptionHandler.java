@@ -1,5 +1,9 @@
-package com.allen.common;
+package com.allen.config;
 
+import com.allen.common.BusinessException;
+import com.allen.common.ErrorCode;
+import com.allen.common.ResponseResult;
+import com.allen.common.ResponseUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -15,9 +19,9 @@ import java.util.logging.Logger;
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-    
+
     private static final Logger logger = Logger.getLogger(GlobalExceptionHandler.class.getName());
-    
+
     /**
      * 处理业务异常
      */
@@ -27,7 +31,7 @@ public class GlobalExceptionHandler {
         ResponseResult<Object> result = ResponseUtils.fail(e.getMessage(), e.getErrorCode());
         return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
     }
-    
+
     /**
      * 处理参数类型不匹配异常
      */
@@ -38,7 +42,7 @@ public class GlobalExceptionHandler {
         ResponseResult<Object> result = ResponseUtils.fail(errorMsg, ErrorCode.PARAM_ERROR);
         return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
     }
-    
+
     /**
      * 处理404异常
      */
@@ -48,7 +52,7 @@ public class GlobalExceptionHandler {
         ResponseResult<Object> result = ResponseUtils.fail("请求的资源不存在", ErrorCode.RESOURCE_NOT_FOUND);
         return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
     }
-    
+
     /**
      * 处理运行时异常
      */
@@ -59,7 +63,7 @@ public class GlobalExceptionHandler {
         ResponseResult<Object> result = ResponseUtils.fail("服务器内部错误", ErrorCode.SYSTEM_ERROR);
         return new ResponseEntity<>(result, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-    
+
     /**
      * 处理所有异常
      */

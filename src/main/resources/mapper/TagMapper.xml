@@ -2,15 +2,15 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.allen.mapper.TagMapper">
-    <resultMap id="BaseResultMap" type="com.allen.entity.Tag">
+<mapper namespace="com.allen.pab.mapper.TagMapper">
+    <resultMap id="BaseResultMap" type="com.allen.pab.entity.Tag">
         <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="color" property="color" />
         <result column="created_at" property="createdAt" />
     </resultMap>
 
-    <insert id="insert" parameterType="com.allen.entity.Tag" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insert" parameterType="com.allen.pab.entity.Tag" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO pab_tags (name, color, created_at)
         VALUES (#{name}, #{color}, #{createdAt})
     </insert>
@@ -19,7 +19,7 @@
         DELETE FROM pab_tags WHERE id = #{id}
     </delete>
 
-    <update id="update" parameterType="com.allen.entity.Tag">
+    <update id="update" parameterType="com.allen.pab.entity.Tag">
         UPDATE pab_tags
         SET name = #{name},
             color = #{color}

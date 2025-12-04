@@ -1,10 +1,10 @@
-package com.allen.service.impl;
+package com.allen.pab.service.impl;
 
 import com.allen.common.BusinessException;
 import com.allen.common.ErrorCode;
-import com.allen.entity.Tag;
-import com.allen.mapper.TagMapper;
-import com.allen.service.TagService;
+import com.allen.pab.entity.Tag;
+import com.allen.pab.mapper.TagMapper;
+import com.allen.pab.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,15 +27,15 @@ public class TagServiceImpl implements TagService {
         if (existingTag != null) {
             throw new BusinessException("标签名称已存在", ErrorCode.TAG_NAME_EXIST);
         }
-        
+
         // 设置创建时间
         tag.setCreatedAt(new Date());
-        
+
         // 如果没有设置颜色，使用默认颜色
         if (tag.getColor() == null) {
             tag.setColor("#FFFFFF");
         }
-        
+
         return tagMapper.insert(tag);
     }
 
@@ -46,12 +46,12 @@ public class TagServiceImpl implements TagService {
         if (tag == null) {
             throw new BusinessException("标签不存在", ErrorCode.TAG_NOT_EXIST);
         }
-        
+
         int result = tagMapper.deleteById(id);
         if (result == 0) {
             throw new BusinessException("标签删除失败", ErrorCode.TAG_DELETE_FAILED);
         }
-        
+
         return result;
     }
 
@@ -62,7 +62,7 @@ public class TagServiceImpl implements TagService {
         if (existingTag == null) {
             throw new BusinessException("标签不存在", ErrorCode.TAG_NOT_EXIST);
         }
-        
+
         // 检查新名称是否与其他标签重复
         if (!existingTag.getName().equals(tag.getName())) {
             Tag nameConflict = tagMapper.selectByName(tag.getName());
@@ -70,12 +70,12 @@ public class TagServiceImpl implements TagService {
                 throw new BusinessException("标签名称已存在", ErrorCode.TAG_NAME_EXIST);
             }
         }
-        
+
         int result = tagMapper.update(tag);
         if (result == 0) {
             throw new BusinessException("标签更新失败", ErrorCode.TAG_UPDATE_FAILED);
         }
-        
+
         return result;
     }
 

@@ -1,9 +1,9 @@
-package com.allen.controller;
+package com.allen.pab.controller;
 
 import com.allen.common.ResponseResult;
 import com.allen.common.ResponseUtils;
-import com.allen.entity.Tag;
-import com.allen.service.TagService;
+import com.allen.pab.entity.Tag;
+import com.allen.pab.service.TagService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package com.allen.entity;
+package com.allen.pab.entity;
 
 import lombok.Data;
 

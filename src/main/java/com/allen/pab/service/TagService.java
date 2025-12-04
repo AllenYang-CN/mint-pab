@@ -1,6 +1,6 @@
-package com.allen.service;
+package com.allen.pab.service;
 
-import com.allen.entity.Tag;
+import com.allen.pab.entity.Tag;
 
 import java.util.List;
 

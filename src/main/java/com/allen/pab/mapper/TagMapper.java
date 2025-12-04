@@ -1,6 +1,6 @@
-package com.allen.mapper;
+package com.allen.pab.mapper;
 
-import com.allen.entity.Tag;
+import com.allen.pab.entity.Tag;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
