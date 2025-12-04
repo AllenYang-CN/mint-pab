@@ -1,0 +1,76 @@
+### 1. 创建标签接口测试
+POST http://localhost:8080/api/tags
+Content-Type: application/json
+
+{
+  "name": "加班餐",
+  "color": "#FF5733"
+}
+
+### 2. 创建标签接口测试 - 名称重复场景
+POST http://localhost:8080/api/tags
+Content-Type: application/json
+
+{
+  "name": "加班餐",
+  "color": "#33FF57"
+}
+
+### 3. 创建标签接口测试 - 使用默认颜色
+POST http://localhost:8080/api/tags
+Content-Type: application/json
+
+{
+  "name": "交通",
+  "color": null
+}
+
+### 4. 获取所有标签列表
+GET http://localhost:8080/api/tags
+Accept: application/json
+
+### 5. 根据ID获取标签详情（替换{tagId}为实际ID）
+GET http://localhost:8080/api/tags/3
+Accept: application/json
+
+### 6. 更新标签信息（替换{tagId}为实际ID）
+PUT http://localhost:8080/api/tags
+Content-Type: application/json
+
+{
+  "id": 3,
+  "name": "加班餐饮",
+  "color": "#3357FF"
+}
+
+### 7. 更新标签接口测试 - 更新到已存在的名称（替换{tagId}为实际ID，{existingTagName}为另一个已存在的标签名）
+PUT http://localhost:8080/api/tags
+Content-Type: application/json
+
+{
+  "id": 3,
+  "name": "交通",
+  "color": "#FF33A8"
+}
+
+### 8. 更新标签接口测试 - 更新不存在的标签
+PUT http://localhost:8080/api/tags
+Content-Type: application/json
+
+{
+  "id": 9999,
+  "name": "不存在的标签",
+  "color": "#000000"
+}
+
+### 9. 删除标签接口测试（替换{tagId}为实际ID）
+DELETE http://localhost:8080/api/tags/4
+Accept: application/json
+
+### 10. 删除不存在的标签
+DELETE http://localhost:8080/api/tags/9999
+Accept: application/json
+
+### 11. 获取不存在的标签
+GET http://localhost:8080/api/tags/9999
+Accept: application/json
