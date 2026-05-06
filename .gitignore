@@ -1,5 +1,7 @@
 /.idea/
 /.mvn/
-/target/
+/backend/target/
+/frontend/node_modules/
 /mint-pab.iml
 /.qoder/
+/.vscode/
