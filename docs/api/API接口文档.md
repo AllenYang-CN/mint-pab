@@ -10,12 +10,12 @@
 
 ### 1.1 基础信息
 
-| 项目 | 说明 |
-|------|------|
+| 项目     | 说明                                  |
+| -------- | ------------------------------------- |
 | 基础 URL | `http://localhost:8080`（开发环境） |
-| 协议 | HTTP/1.1 |
-| 数据格式 | JSON |
-| 编码 | UTF-8 |
+| 协议     | HTTP/1.1                              |
+| 数据格式 | JSON                                  |
+| 编码     | UTF-8                                 |
 
 ### 1.2 认证方式
 
@@ -31,10 +31,10 @@
 
 ### 2.1 请求头规范
 
-| 请求头 | 必填 | 说明 |
-|--------|------|------|
-| `Content-Type` | 是 | 固定值 `application/json` |
-| `Authorization` | 是（登录除外） | `Bearer {accessToken}` |
+| 请求头            | 必填           | 说明                        |
+| ----------------- | -------------- | --------------------------- |
+| `Content-Type`  | 是             | 固定值 `application/json` |
+| `Authorization` | 是（登录除外） | `Bearer {accessToken}`    |
 
 ### 2.2 统一响应格式
 
@@ -48,20 +48,20 @@
 }
 ```
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `code` | Integer | 状态码，`200` 表示成功 |
-| `message` | String | 提示信息 |
-| `data` | T | 业务数据，失败时可能为 `null` |
+| 字段        | 类型    | 说明                            |
+| ----------- | ------- | ------------------------------- |
+| `code`    | Integer | 状态码，`200` 表示成功        |
+| `message` | String  | 提示信息                        |
+| `data`    | T       | 业务数据，失败时可能为 `null` |
 
 ### 2.3 分页请求格式
 
 列表查询接口统一使用以下分页参数：
 
-| 参数 | 类型 | 必填 | 说明 |
-|------|------|------|------|
-| `pageNum` | Integer | 否 | 当前页码，默认 `1` |
-| `pageSize` | Integer | 否 | 每页条数，默认 `20`，最大 `100` |
+| 参数         | 类型    | 必填 | 说明                                |
+| ------------ | ------- | ---- | ----------------------------------- |
+| `pageNum`  | Integer | 否   | 当前页码，默认 `1`                |
+| `pageSize` | Integer | 否   | 每页条数，默认 `20`，最大 `100` |
 
 ### 2.4 分页响应格式
 
@@ -79,24 +79,24 @@
 }
 ```
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `list` | Array | 数据列表 |
-| `pageNum` | Integer | 当前页码 |
+| 字段         | 类型    | 说明     |
+| ------------ | ------- | -------- |
+| `list`     | Array   | 数据列表 |
+| `pageNum`  | Integer | 当前页码 |
 | `pageSize` | Integer | 每页条数 |
-| `total` | Long | 总记录数 |
-| `pages` | Integer | 总页数 |
+| `total`    | Long    | 总记录数 |
+| `pages`    | Integer | 总页数   |
 
 ### 2.5 通用错误码表
 
-| 错误码 | 说明 | HTTP状态码 |
-|--------|------|-----------|
-| `200` | 操作成功 | 200 |
-| `400` | 请求参数错误 | 400 |
-| `401` | 未授权，Token 无效或过期 | 401 |
-| `403` | 禁止访问 | 403 |
-| `404` | 资源不存在 | 404 |
-| `500` | 服务器内部错误 | 500 |
+| 错误码  | 说明                     | HTTP状态码 |
+| ------- | ------------------------ | ---------- |
+| `200` | 操作成功                 | 200        |
+| `400` | 请求参数错误             | 400        |
+| `401` | 未授权，Token 无效或过期 | 401        |
+| `403` | 禁止访问                 | 403        |
+| `404` | 资源不存在               | 404        |
+| `500` | 服务器内部错误           | 500        |
 
 ---
 
@@ -110,10 +110,10 @@
 
 #### 请求参数（Body）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `username` | String | 是 | 用户名，长度3-20位，支持字母、数字、下划线 |
-| `password` | String | 是 | 密码，长度6-20位 |
+| 参数名       | 类型   | 必填 | 说明                                       |
+| ------------ | ------ | ---- | ------------------------------------------ |
+| `username` | String | 是   | 用户名，长度3-20位，支持字母、数字、下划线 |
+| `password` | String | 是   | 密码，长度6-20位                           |
 
 #### 请求示例
 
@@ -149,9 +149,9 @@
 
 #### 业务错误码
 
-| 错误码 | 说明 |
-|--------|------|
-| `400` | 用户名或密码错误 |
+| 错误码  | 说明                 |
+| ------- | -------------------- |
+| `400` | 用户名或密码错误     |
 | `400` | 用户名或密码不能为空 |
 
 ---
@@ -245,9 +245,9 @@
 
 #### 请求参数（Query）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `status` | String | 否 | 状态筛选：`ACTIVE` 正常 / `DISABLED` 停用，不传返回全部 |
+| 参数名     | 类型   | 必填 | 说明                                                        |
+| ---------- | ------ | ---- | ----------------------------------------------------------- |
+| `status` | String | 否   | 状态筛选：`ACTIVE` 正常 / `DISABLED` 停用，不传返回全部 |
 
 #### 请求示例
 
@@ -280,18 +280,18 @@ GET /api/accounts?status=ACTIVE
 
 #### 字段说明
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `id` | String | 账户ID |
-| `name` | String | 账户名称 |
-| `type` | String | 账户类型编码：`CASH` 现金、`BANK_SAVINGS` 银行储蓄卡、`CREDIT_CARD` 信用卡、`ALIPAY` 支付宝、`WECHAT` 微信 |
-| `typeName` | String | 账户类型名称 |
-| `initialBalance` | String | 初始余额，两位小数 |
-| `currentBalance` | String | 当前余额，两位小数 |
-| `remark` | String | 备注 |
-| `status` | String | 状态：`ACTIVE` 正常 / `DISABLED` 停用 |
-| `createTime` | String | 创建时间，格式 `yyyy-MM-dd HH:mm:ss` |
-| `updateTime` | String | 更新时间，格式 `yyyy-MM-dd HH:mm:ss` |
+| 字段               | 类型   | 说明                                                                                                                 |
+| ------------------ | ------ | -------------------------------------------------------------------------------------------------------------------- |
+| `id`             | String | 账户ID                                                                                                               |
+| `name`           | String | 账户名称                                                                                                             |
+| `type`           | String | 账户类型编码：`CASH` 现金、`BANK_SAVINGS` 银行储蓄卡、`CREDIT_CARD` 信用卡、`ALIPAY` 支付宝、`WECHAT` 微信 |
+| `typeName`       | String | 账户类型名称                                                                                                         |
+| `initialBalance` | String | 初始余额，两位小数                                                                                                   |
+| `currentBalance` | String | 当前余额，两位小数                                                                                                   |
+| `remark`         | String | 备注                                                                                                                 |
+| `status`         | String | 状态：`ACTIVE` 正常 / `DISABLED` 停用                                                                            |
+| `createTime`     | String | 创建时间，格式 `yyyy-MM-dd HH:mm:ss`                                                                               |
+| `updateTime`     | String | 更新时间，格式 `yyyy-MM-dd HH:mm:ss`                                                                               |
 
 ---
 
@@ -303,12 +303,12 @@ GET /api/accounts?status=ACTIVE
 
 #### 请求参数（Body）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `name` | String | 是 | 账户名称，长度2-30位，同一用户下不可重复 |
-| `type` | String | 是 | 账户类型：`CASH` / `BANK_SAVINGS` / `CREDIT_CARD` / `ALIPAY` / `WECHAT` |
-| `initialBalance` | String | 是 | 初始余额，精确到两位小数，可正可负 |
-| `remark` | String | 否 | 备注，长度0-200位 |
+| 参数名             | 类型   | 必填 | 说明                                                                              |
+| ------------------ | ------ | ---- | --------------------------------------------------------------------------------- |
+| `name`           | String | 是   | 账户名称，长度2-30位，同一用户下不可重复                                          |
+| `type`           | String | 是   | 账户类型：`CASH` / `BANK_SAVINGS` / `CREDIT_CARD` / `ALIPAY` / `WECHAT` |
+| `initialBalance` | String | 是   | 初始余额，精确到两位小数，可正可负                                                |
+| `remark`         | String | 否   | 备注，长度0-200位                                                                 |
 
 #### 请求示例
 
@@ -354,10 +354,10 @@ GET /api/accounts?status=ACTIVE
 
 #### 业务错误码
 
-| 错误码 | 说明 |
-|--------|------|
-| `400` | 账户名称已存在 |
-| `400` | 账户类型不合法 |
+| 错误码  | 说明             |
+| ------- | ---------------- |
+| `400` | 账户名称已存在   |
+| `400` | 账户类型不合法   |
 | `400` | 初始余额格式错误 |
 
 ---
@@ -370,16 +370,16 @@ GET /api/accounts?status=ACTIVE
 
 #### 请求参数（Path）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `id` | String | 是 | 账户ID |
+| 参数名 | 类型   | 必填 | 说明   |
+| ------ | ------ | ---- | ------ |
+| `id` | String | 是   | 账户ID |
 
 #### 请求参数（Body）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `name` | String | 是 | 账户名称，长度2-30位 |
-| `remark` | String | 否 | 备注，长度0-200位 |
+| 参数名     | 类型   | 必填 | 说明                 |
+| ---------- | ------ | ---- | -------------------- |
+| `name`   | String | 是   | 账户名称，长度2-30位 |
+| `remark` | String | 否   | 备注，长度0-200位    |
 
 #### 请求示例
 
@@ -413,9 +413,9 @@ GET /api/accounts?status=ACTIVE
 
 #### 业务错误码
 
-| 错误码 | 说明 |
-|--------|------|
-| `404` | 账户不存在 |
+| 错误码  | 说明           |
+| ------- | -------------- |
+| `404` | 账户不存在     |
 | `400` | 账户名称已存在 |
 
 ---
@@ -428,9 +428,9 @@ GET /api/accounts?status=ACTIVE
 
 #### 请求参数（Path）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `id` | String | 是 | 账户ID |
+| 参数名 | 类型   | 必填 | 说明   |
+| ------ | ------ | ---- | ------ |
+| `id` | String | 是   | 账户ID |
 
 #### 请求示例
 
@@ -460,11 +460,11 @@ DELETE /api/accounts/acc_002
 
 #### 业务错误码
 
-| 错误码 | 说明 |
-|--------|------|
-| `404` | 账户不存在 |
+| 错误码  | 说明                           |
+| ------- | ------------------------------ |
+| `404` | 账户不存在                     |
 | `400` | 该账户存在交易记录，不允许删除 |
-| `400` | 系统预设账户不允许删除 |
+| `400` | 系统预设账户不允许删除         |
 
 ---
 
@@ -476,15 +476,15 @@ DELETE /api/accounts/acc_002
 
 #### 请求参数（Path）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `id` | String | 是 | 账户ID |
+| 参数名 | 类型   | 必填 | 说明   |
+| ------ | ------ | ---- | ------ |
+| `id` | String | 是   | 账户ID |
 
 #### 请求参数（Body）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `status` | String | 是 | 目标状态：`ACTIVE` 启用 / `DISABLED` 停用 |
+| 参数名     | 类型   | 必填 | 说明                                          |
+| ---------- | ------ | ---- | --------------------------------------------- |
+| `status` | String | 是   | 目标状态：`ACTIVE` 启用 / `DISABLED` 停用 |
 
 #### 请求示例
 
@@ -511,9 +511,9 @@ DELETE /api/accounts/acc_002
 
 #### 业务错误码
 
-| 错误码 | 说明 |
-|--------|------|
-| `404` | 账户不存在 |
+| 错误码  | 说明         |
+| ------- | ------------ |
+| `404` | 账户不存在   |
 | `400` | 状态值不合法 |
 
 ---
@@ -528,24 +528,24 @@ DELETE /api/accounts/acc_002
 
 #### 请求参数（Body）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `type` | String | 是 | 交易类型：`INCOME` 收入 / `EXPENSE` 支出 / `TRANSFER` 转账 |
-| `fromAccountId` | String | 条件必填 | 支出/转账时必填，转出账户ID |
-| `toAccountId` | String | 条件必填 | 收入/转账时必填，转入账户ID |
-| `amount` | String | 是 | 交易金额，精确到两位小数，必须大于0 |
-| `categoryId` | String | 是 | 交易分类ID（转账时可为空） |
-| `transactionTime` | String | 是 | 交易时间，格式 `yyyy-MM-dd HH:mm:ss`，默认当前时间 |
-| `remark` | String | 否 | 备注，长度0-500位 |
+| 参数名              | 类型   | 必填     | 说明                                                             |
+| ------------------- | ------ | -------- | ---------------------------------------------------------------- |
+| `type`            | String | 是       | 交易类型：`INCOME` 收入 / `EXPENSE` 支出 / `TRANSFER` 转账 |
+| `fromAccountId`   | Long   | 条件必填 | 支出/转账时必填，转出账户ID                                      |
+| `toAccountId`     | Long   | 条件必填 | 收入/转账时必填，转入账户ID                                      |
+| `amount`          | Number | 是       | 交易金额，精确到两位小数，必须大于0                              |
+| `categoryId`      | Long   | 条件必填 | 交易分类ID（二级分类），转账时可为空                             |
+| `transactionTime` | String | 是       | 交易时间，格式 `yyyy-MM-dd HH:mm:ss`                           |
+| `remark`          | String | 否       | 备注，长度0-500位                                                |
 
 #### 请求示例（收入）
 
 ```json
 {
   "type": "INCOME",
-  "toAccountId": "acc_001",
-  "amount": "5000.00",
-  "categoryId": "cat_income_001",
+  "toAccountId": 1,
+  "amount": 5000.00,
+  "categoryId": 15,
   "transactionTime": "2026-05-05 10:00:00",
   "remark": "5月工资"
 }
@@ -556,9 +556,9 @@ DELETE /api/accounts/acc_002
 ```json
 {
   "type": "EXPENSE",
-  "fromAccountId": "acc_001",
-  "amount": "35.50",
-  "categoryId": "cat_food_001",
+  "fromAccountId": 1,
+  "amount": 35.50,
+  "categoryId": 20,
   "transactionTime": "2026-05-05 12:30:00",
   "remark": "午餐外卖"
 }
@@ -569,9 +569,10 @@ DELETE /api/accounts/acc_002
 ```json
 {
   "type": "TRANSFER",
-  "fromAccountId": "acc_001",
-  "toAccountId": "acc_003",
-  "amount": "1000.00",
+  "fromAccountId": 1,
+  "toAccountId": 3,
+  "amount": 1000.00,
+  "categoryId": 15,
   "transactionTime": "2026-05-05 14:00:00",
   "remark": "转账到支付宝"
 }
@@ -584,23 +585,42 @@ DELETE /api/accounts/acc_002
   "code": 200,
   "message": "记账成功",
   "data": {
-    "id": "txn_001",
+    "id": 1,
     "type": "EXPENSE",
     "typeName": "支出",
-    "fromAccountId": "acc_001",
+    "fromAccountId": 1,
     "fromAccountName": "招商银行储蓄卡",
     "toAccountId": null,
     "toAccountName": null,
-    "amount": "35.50",
-    "categoryId": "cat_food_001",
-    "categoryName": "餐饮 > 外卖",
+    "amount": 35.50,
+    "categoryId": 20,
+    "categoryParentName": "餐饮",
+    "categoryName": "外卖",
     "transactionTime": "2026-05-05 12:30:00",
     "remark": "午餐外卖",
-    "createTime": "2026-05-05 12:31:00",
-    "updateTime": "2026-05-05 12:31:00"
+    "createTime": "2026-05-05 12:31:00"
   }
 }
 ```
+
+#### 响应字段说明
+
+| 字段                 | 类型    | 说明                                                    |
+| -------------------- | ------- | ------------------------------------------------------- |
+| `id`               | Long    | 交易记录ID                                              |
+| `type`             | String  | 交易类型编码：`INCOME` / `EXPENSE` / `TRANSFER` |
+| `typeName`         | String  | 交易类型名称                                            |
+| `fromAccountId`    | Long    | 转出账户ID，收入时为 `null`                           |
+| `fromAccountName`  | String  | 转出账户名称，收入时为 `null`                         |
+| `toAccountId`      | Long    | 转入账户ID，支出时为 `null`                           |
+| `toAccountName`    | String  | 转入账户名称，支出时为 `null`                         |
+| `amount`           | Number  | 交易金额                                                |
+| `categoryId`       | Long    | 分类ID                                                  |
+| `categoryParentName` | String | 一级分类名称                                           |
+| `categoryName`     | String  | 二级分类名称（叶节点）                                   |
+| `transactionTime`  | String  | 交易时间，格式 `yyyy-MM-dd HH:mm:ss`                  |
+| `remark`           | String  | 备注                                                    |
+| `createTime`       | String  | 创建时间，格式 `yyyy-MM-dd HH:mm:ss`                  |
 
 #### 响应示例（失败）
 
@@ -614,14 +634,15 @@ DELETE /api/accounts/acc_002
 
 #### 业务错误码
 
-| 错误码 | 说明 |
-|--------|------|
-| `400` | 交易类型不合法 |
-| `400` | 收入/支出金额必须大于0 |
-| `400` | 转出账户和转入账户不能相同 |
+| 错误码  | 说明                         |
+| ------- | ---------------------------- |
+| `400` | 交易类型不合法               |
+| `400` | 收入/支出金额必须大于0       |
+| `400` | 转出账户和转入账户不能相同   |
 | `400` | 该账户已停用，请选择其他账户 |
-| `404` | 账户不存在 |
-| `404` | 分类不存在 |
+| `400` | 分类必须为二级分类           |
+| `404` | 账户不存在                   |
+| `404` | 分类不存在                   |
 
 ---
 
@@ -633,28 +654,31 @@ DELETE /api/accounts/acc_002
 
 #### 请求参数（Path）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `id` | String | 是 | 交易ID |
+| 参数名 | 类型   | 必填 | 说明   |
+| ------ | ------ | ---- | ------ |
+| `id` | Long   | 是   | 交易ID |
 
 #### 请求参数（Body）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `fromAccountId` | String | 条件必填 | 支出/转账时必填 |
-| `toAccountId` | String | 条件必填 | 收入/转账时必填 |
-| `amount` | String | 是 | 交易金额，精确到两位小数，必须大于0 |
-| `categoryId` | String | 是 | 交易分类ID |
-| `transactionTime` | String | 是 | 交易时间，格式 `yyyy-MM-dd HH:mm:ss` |
-| `remark` | String | 否 | 备注 |
+| 参数名              | 类型   | 必填     | 说明                                   |
+| ------------------- | ------ | -------- | -------------------------------------- |
+| `fromAccountId`   | Long   | 条件必填 | 支出/转账时必填，转出账户ID            |
+| `toAccountId`     | Long   | 条件必填 | 收入/转账时必填，转入账户ID            |
+| `amount`          | Number | 是       | 交易金额，精确到两位小数，必须大于0    |
+| `categoryId`      | Long   | 条件必填 | 交易分类ID（二级分类），转账时可为空   |
+| `transactionTime` | String | 是       | 交易时间，格式 `yyyy-MM-dd HH:mm:ss` |
+| `remark`          | String | 否       | 备注，长度0-500位                      |
+
+> **注意**：请求Body中需包含 `type` 字段且必须与原交易类型一致，否则返回错误。修改后服务端会先回滚原交易的余额影响，再应用新交易的余额影响。
 
 #### 请求示例
 
 ```json
 {
-  "fromAccountId": "acc_001",
-  "amount": "45.00",
-  "categoryId": "cat_food_001",
+  "type": "EXPENSE",
+  "fromAccountId": 1,
+  "amount": 45.00,
+  "categoryId": 20,
   "transactionTime": "2026-05-05 12:30:00",
   "remark": "午餐外卖-修改"
 }
@@ -667,41 +691,53 @@ DELETE /api/accounts/acc_002
   "code": 200,
   "message": "更新成功",
   "data": {
-    "id": "txn_001",
+    "id": 1,
     "type": "EXPENSE",
-    "amount": "45.00",
+    "typeName": "支出",
+    "fromAccountId": 1,
+    "fromAccountName": "招商银行储蓄卡",
+    "toAccountId": null,
+    "toAccountName": null,
+    "amount": 45.00,
+    "categoryId": 20,
+    "categoryParentName": "餐饮",
+    "categoryName": "外卖",
+    "transactionTime": "2026-05-05 12:30:00",
     "remark": "午餐外卖-修改",
-    "updateTime": "2026-05-05 16:30:00"
+    "createTime": "2026-05-05 12:31:00"
   }
 }
 ```
 
 #### 业务错误码
 
-| 错误码 | 说明 |
-|--------|------|
-| `404` | 交易不存在 |
-| `400` | 不允许修改交易类型 |
-| `400` | 该账户已停用 |
+| 错误码  | 说明                         |
+| ------- | ---------------------------- |
+| `404` | 交易不存在                   |
+| `400` | 不允许修改交易类型           |
+| `400` | 交易金额必须大于0            |
+| `400` | 该账户已停用                 |
+| `400` | 分类必须为二级分类           |
+| `404` | 分类不存在                   |
 
 ---
 
 ### 5.3 删除交易
 
 - **接口路径**：`DELETE /api/transactions/{id}`
-- **接口描述**：删除交易记录，删除后自动恢复账户原余额
+- **接口描述**：删除交易记录（逻辑删除），删除后自动恢复账户原余额
 - **请求头**：`Content-Type: application/json`、`Authorization: Bearer {accessToken}`
 
 #### 请求参数（Path）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `id` | String | 是 | 交易ID |
+| 参数名 | 类型   | 必填 | 说明   |
+| ------ | ------ | ---- | ------ |
+| `id` | Long   | 是   | 交易ID |
 
 #### 请求示例
 
 ```
-DELETE /api/transactions/txn_001
+DELETE /api/transactions/1
 ```
 
 #### 响应示例（成功）
@@ -716,8 +752,8 @@ DELETE /api/transactions/txn_001
 
 #### 业务错误码
 
-| 错误码 | 说明 |
-|--------|------|
+| 错误码  | 说明       |
+| ------- | ---------- |
 | `404` | 交易不存在 |
 
 ---
@@ -730,14 +766,14 @@ DELETE /api/transactions/txn_001
 
 #### 请求参数（Path）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `id` | String | 是 | 交易ID |
+| 参数名 | 类型   | 必填 | 说明   |
+| ------ | ------ | ---- | ------ |
+| `id` | Long   | 是   | 交易ID |
 
 #### 请求示例
 
 ```
-GET /api/transactions/txn_001
+GET /api/transactions/1
 ```
 
 #### 响应示例（成功）
@@ -747,23 +783,42 @@ GET /api/transactions/txn_001
   "code": 200,
   "message": "查询成功",
   "data": {
-    "id": "txn_001",
+    "id": 1,
     "type": "EXPENSE",
     "typeName": "支出",
-    "fromAccountId": "acc_001",
+    "fromAccountId": 1,
     "fromAccountName": "招商银行储蓄卡",
     "toAccountId": null,
     "toAccountName": null,
-    "amount": "35.50",
-    "categoryId": "cat_food_001",
-    "categoryName": "餐饮 > 外卖",
+    "amount": 35.50,
+    "categoryId": 20,
+    "categoryParentName": "餐饮",
+    "categoryName": "外卖",
     "transactionTime": "2026-05-05 12:30:00",
     "remark": "午餐外卖",
-    "createTime": "2026-05-05 12:31:00",
-    "updateTime": "2026-05-05 12:31:00"
+    "createTime": "2026-05-05 12:31:00"
   }
 }
 ```
+
+#### 响应字段说明
+
+| 字段                 | 类型    | 说明                                                    |
+| -------------------- | ------- | ------------------------------------------------------- |
+| `id`               | Long    | 交易记录ID                                              |
+| `type`             | String  | 交易类型编码：`INCOME` / `EXPENSE` / `TRANSFER` |
+| `typeName`         | String  | 交易类型名称                                            |
+| `fromAccountId`    | Long    | 转出账户ID，收入时为 `null`                           |
+| `fromAccountName`  | String  | 转出账户名称，收入时为 `null`                         |
+| `toAccountId`      | Long    | 转入账户ID，支出时为 `null`                           |
+| `toAccountName`    | String  | 转入账户名称，支出时为 `null`                         |
+| `amount`           | Number  | 交易金额                                                |
+| `categoryId`       | Long    | 分类ID                                                  |
+| `categoryParentName` | String | 一级分类名称                                           |
+| `categoryName`     | String  | 二级分类名称（叶节点）                                   |
+| `transactionTime`  | String  | 交易时间，格式 `yyyy-MM-dd HH:mm:ss`                  |
+| `remark`           | String  | 备注                                                    |
+| `createTime`       | String  | 创建时间，格式 `yyyy-MM-dd HH:mm:ss`                  |
 
 ---
 
@@ -772,14 +827,14 @@ GET /api/transactions/txn_001
 ### 6.1 分类列表
 
 - **接口路径**：`GET /api/categories`
-- **接口描述**：查询两级分类列表，支持按类型筛选
+- **接口描述**：查询分类列表（包含一级和二级分类），支持按类型筛选
 - **请求头**：`Content-Type: application/json`、`Authorization: Bearer {accessToken}`
 
 #### 请求参数（Query）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `type` | String | 否 | 分类类型筛选：`INCOME` 收入 / `EXPENSE` 支出，不传返回全部 |
+| 参数名   | 类型   | 必填 | 说明                                                           |
+| -------- | ------ | ---- | -------------------------------------------------------------- |
+| `type` | String | 否   | 分类类型筛选：`INCOME` 收入 / `EXPENSE` 支出，不传返回全部 |
 
 #### 请求示例
 
@@ -795,22 +850,34 @@ GET /api/categories?type=EXPENSE
   "message": "查询成功",
   "data": [
     {
-      "id": "cat_food",
+      "id": 2,
+      "parentId": null,
+      "parentName": null,
+      "name": "餐饮",
+      "type": "EXPENSE",
+      "typeName": "支出",
+      "isSystem": true,
+      "sortOrder": 10
+    },
+    {
+      "id": 15,
+      "parentId": 2,
       "parentName": "餐饮",
       "name": "外卖",
       "type": "EXPENSE",
       "typeName": "支出",
       "isSystem": true,
-      "sortOrder": 1
+      "sortOrder": 10
     },
     {
-      "id": "cat_food_002",
+      "id": 16,
+      "parentId": 2,
       "parentName": "餐饮",
       "name": "堂食",
       "type": "EXPENSE",
       "typeName": "支出",
       "isSystem": true,
-      "sortOrder": 2
+      "sortOrder": 11
     }
   ]
 }
@@ -818,42 +885,35 @@ GET /api/categories?type=EXPENSE
 
 #### 字段说明
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `id` | String | 分类ID |
-| `parentName` | String | 一级分类名称 |
-| `name` | String | 二级分类名称 |
-| `type` | String | 分类类型：`INCOME` / `EXPENSE` |
-| `typeName` | String | 分类类型名称 |
-| `isSystem` | Boolean | 是否系统预置：`true` 系统预置 / `false` 用户自定义 |
-| `sortOrder` | Integer | 排序序号 |
+| 字段           | 类型    | 说明                                                   |
+| -------------- | ------- | ------------------------------------------------------ |
+| `id`         | Long    | 分类ID                                                 |
+| `parentId`   | Long    | 父分类ID，一级分类为 `null`                          |
+| `parentName` | String  | 父分类名称，一级分类为 `null`                        |
+| `name`       | String  | 分类名称                                               |
+| `type`       | String  | 分类类型：`INCOME` / `EXPENSE`                     |
+| `typeName`   | String  | 分类类型名称                                           |
+| `isSystem`   | Boolean | 是否系统预置：`true` 系统预置 / `false` 用户自定义 |
+| `sortOrder`  | Integer | 排序序号                                               |
 
 ---
 
-### 6.2 新增分类
+### 6.2 分类树状查询
 
-- **接口路径**：`POST /api/categories`
-- **接口描述**：添加自定义分类
+- **接口路径**：`GET /api/categories/tree`
+- **接口描述**：查询两级分类树状结构，按一级分类分组，包含其下所有二级分类，支持按类型筛选
 - **请求头**：`Content-Type: application/json`、`Authorization: Bearer {accessToken}`
 
-#### 请求参数（Body）
+#### 请求参数（Query）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `parentName` | String | 是 | 一级分类名称，长度2-20位 |
-| `name` | String | 是 | 二级分类名称，长度2-20位 |
-| `type` | String | 是 | 分类类型：`INCOME` 收入 / `EXPENSE` 支出 |
-| `sortOrder` | Integer | 否 | 排序序号，默认0 |
+| 参数名   | 类型   | 必填 | 说明                                                           |
+| -------- | ------ | ---- | -------------------------------------------------------------- |
+| `type` | String | 否   | 分类类型筛选：`INCOME` 收入 / `EXPENSE` 支出，不传返回全部 |
 
 #### 请求示例
 
-```json
-{
-  "parentName": "宠物",
-  "name": "猫粮",
-  "type": "EXPENSE",
-  "sortOrder": 10
-}
+```
+GET /api/categories/tree?type=EXPENSE
 ```
 
 #### 响应示例（成功）
@@ -861,9 +921,140 @@ GET /api/categories?type=EXPENSE
 ```json
 {
   "code": 200,
+  "message": "查询成功",
+  "data": [
+    {
+      "id": 2,
+      "name": "餐饮",
+      "type": "EXPENSE",
+      "typeName": "支出",
+      "isSystem": true,
+      "sortOrder": 10,
+      "children": [
+        {
+          "id": 15,
+          "name": "外卖",
+          "type": "EXPENSE",
+          "typeName": "支出",
+          "isSystem": true,
+          "sortOrder": 10
+        },
+        {
+          "id": 16,
+          "name": "堂食",
+          "type": "EXPENSE",
+          "typeName": "支出",
+          "isSystem": true,
+          "sortOrder": 11
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "交通",
+      "type": "EXPENSE",
+      "typeName": "支出",
+      "isSystem": true,
+      "sortOrder": 20,
+      "children": [
+        {
+          "id": 19,
+          "name": "公共交通",
+          "type": "EXPENSE",
+          "typeName": "支出",
+          "isSystem": true,
+          "sortOrder": 20
+        }
+      ]
+    }
+  ]
+}
+```
+
+#### 字段说明
+
+| 字段                   | 类型    | 说明                               |
+| ---------------------- | ------- | ---------------------------------- |
+| `id`                 | Long    | 一级分类ID                         |
+| `name`               | String  | 一级分类名称                       |
+| `type`               | String  | 分类类型：`INCOME` / `EXPENSE` |
+| `typeName`           | String  | 分类类型名称                       |
+| `isSystem`           | Boolean | 是否系统预置                       |
+| `sortOrder`          | Integer | 排序序号                           |
+| `children`           | Array   | 该一级分类下的二级分类列表         |
+| `children.id`        | Long    | 二级分类ID                         |
+| `children.name`      | String  | 二级分类名称                       |
+| `children.type`      | String  | 分类类型：`INCOME` / `EXPENSE` |
+| `children.typeName`  | String  | 分类类型名称                       |
+| `children.isSystem`  | Boolean | 是否系统预置                       |
+| `children.sortOrder` | Integer | 排序序号                           |
+
+---
+
+### 6.3 新增分类
+
+- **接口路径**：`POST /api/categories`
+- **接口描述**：添加自定义分类，支持创建一级分类或二级分类
+- **请求头**：`Content-Type: application/json`、`Authorization: Bearer {accessToken}`
+
+#### 请求参数（Body）
+
+| 参数名         | 类型    | 必填 | 说明                                              |
+| -------------- | ------- | ---- | ------------------------------------------------- |
+| `parentId`   | Long    | 否   | 父分类ID，不传或为 `null` 表示创建一级分类      |
+| `name`       | String  | 是   | 分类名称，长度2-20位                              |
+| `type`       | String  | 是   | 分类类型：`INCOME` 收入 / `EXPENSE` 支出      |
+| `sortOrder`  | Integer | 否   | 排序序号，默认0                                   |
+
+#### 请求示例（创建一级分类）
+
+```json
+{
+  "name": "宠物",
+  "type": "EXPENSE",
+  "sortOrder": 100
+}
+```
+
+#### 请求示例（创建二级分类）
+
+```json
+{
+  "parentId": 2,
+  "name": "猫粮",
+  "type": "EXPENSE",
+  "sortOrder": 10
+}
+```
+
+#### 响应示例（成功 - 一级分类）
+
+```json
+{
+  "code": 200,
   "message": "创建成功",
   "data": {
-    "id": "cat_custom_001",
+    "id": 41,
+    "parentId": null,
+    "parentName": null,
+    "name": "宠物",
+    "type": "EXPENSE",
+    "typeName": "支出",
+    "isSystem": false,
+    "sortOrder": 100
+  }
+}
+```
+
+#### 响应示例（成功 - 二级分类）
+
+```json
+{
+  "code": 200,
+  "message": "创建成功",
+  "data": {
+    "id": 42,
+    "parentId": 41,
     "parentName": "宠物",
     "name": "猫粮",
     "type": "EXPENSE",
@@ -879,46 +1070,50 @@ GET /api/categories?type=EXPENSE
 ```json
 {
   "code": 400,
-  "message": "该分类下已存在同名子分类",
+  "message": "该分类已存在",
   "data": null
 }
 ```
 
 #### 业务错误码
 
-| 错误码 | 说明 |
-|--------|------|
-| `400` | 该分类下已存在同名子分类 |
-| `400` | 分类类型不合法 |
+| 错误码  | 说明                     |
+| ------- | ------------------------ |
+| `400` | 该分类已存在             |
+| `400` | 分类类型不合法           |
+| `400` | 父分类不存在             |
+| `400` | 父分类必须是一级分类     |
 
 ---
 
-### 6.3 编辑分类
+### 6.4 编辑分类
 
 - **接口路径**：`PUT /api/categories/{id}`
-- **接口描述**：修改自定义分类名称，系统预置分类不允许修改
+- **接口描述**：修改自定义分类，系统预置分类不允许修改
 - **请求头**：`Content-Type: application/json`、`Authorization: Bearer {accessToken}`
 
 #### 请求参数（Path）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `id` | String | 是 | 分类ID |
+| 参数名 | 类型   | 必填 | 说明   |
+| ------ | ------ | ---- | ------ |
+| `id` | Long   | 是   | 分类ID |
 
 #### 请求参数（Body）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `parentName` | String | 是 | 一级分类名称 |
-| `name` | String | 是 | 二级分类名称 |
-| `sortOrder` | Integer | 否 | 排序序号 |
+| 参数名         | 类型    | 必填 | 说明                                       |
+| -------------- | ------- | ---- | ------------------------------------------ |
+| `parentId`   | Long    | 否   | 父分类ID，`null` 表示一级分类            |
+| `name`       | String  | 是   | 分类名称，长度2-20位                       |
+| `type`       | String  | 是   | 分类类型：`INCOME` 收入 / `EXPENSE` 支出 |
+| `sortOrder`  | Integer | 否   | 排序序号                                   |
 
 #### 请求示例
 
 ```json
 {
-  "parentName": "宠物",
+  "parentId": 41,
   "name": "宠物食品",
+  "type": "EXPENSE",
   "sortOrder": 10
 }
 ```
@@ -930,10 +1125,12 @@ GET /api/categories?type=EXPENSE
   "code": 200,
   "message": "更新成功",
   "data": {
-    "id": "cat_custom_001",
+    "id": 42,
+    "parentId": 41,
     "parentName": "宠物",
     "name": "宠物食品",
     "type": "EXPENSE",
+    "typeName": "支出",
     "isSystem": false,
     "sortOrder": 10
   }
@@ -945,37 +1142,40 @@ GET /api/categories?type=EXPENSE
 ```json
 {
   "code": 403,
-  "message": "系统预置分类不允许修改",
+  "message": "系统预置分类不允许修改或删除",
   "data": null
 }
 ```
 
 #### 业务错误码
 
-| 错误码 | 说明 |
-|--------|------|
-| `404` | 分类不存在 |
-| `403` | 系统预置分类不允许修改 |
-| `400` | 该分类下已存在同名子分类 |
+| 错误码  | 说明                           |
+| ------- | ------------------------------ |
+| `404` | 分类不存在                     |
+| `403` | 系统预置分类不允许修改         |
+| `400` | 该分类已存在                   |
+| `400` | 父分类不存在                   |
+| `400` | 父分类必须是一级分类           |
+| `400` | 该分类下存在子分类，无法移动   |
 
 ---
 
-### 6.4 删除分类
+### 6.5 删除分类
 
 - **接口路径**：`DELETE /api/categories/{id}`
-- **接口描述**：删除自定义分类，有关联交易或系统预置分类不允许删除
+- **接口描述**：删除自定义分类，有关联交易、关联预算或子分类时不允许删除，系统预置分类不允许删除
 - **请求头**：`Content-Type: application/json`、`Authorization: Bearer {accessToken}`
 
 #### 请求参数（Path）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `id` | String | 是 | 分类ID |
+| 参数名 | 类型   | 必填 | 说明   |
+| ------ | ------ | ---- | ------ |
+| `id` | Long   | 是   | 分类ID |
 
 #### 请求示例
 
 ```
-DELETE /api/categories/cat_custom_001
+DELETE /api/categories/42
 ```
 
 #### 响应示例（成功）
@@ -1000,11 +1200,13 @@ DELETE /api/categories/cat_custom_001
 
 #### 业务错误码
 
-| 错误码 | 说明 |
-|--------|------|
-| `404` | 分类不存在 |
-| `403` | 系统预置分类不允许删除 |
+| 错误码  | 说明                             |
+| ------- | -------------------------------- |
+| `404` | 分类不存在                       |
+| `403` | 系统预置分类不允许删除           |
+| `400` | 该分类下存在子分类，不允许删除   |
 | `400` | 该分类下存在交易记录，不允许删除 |
+| `400` | 该分类下存在关联预算，不允许删除 |
 
 ---
 
@@ -1018,9 +1220,9 @@ DELETE /api/categories/cat_custom_001
 
 #### 请求参数（Query）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `month` | String | 是 | 预算月份，格式 `yyyy-MM`，如 `2026-05` |
+| 参数名    | 类型   | 必填 | 说明                                       |
+| --------- | ------ | ---- | ------------------------------------------ |
+| `month` | String | 是   | 预算月份，格式 `yyyy-MM`，如 `2026-05` |
 
 #### 请求示例
 
@@ -1072,19 +1274,19 @@ GET /api/budgets?month=2026-05
 
 #### 字段说明
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `month` | String | 预算月份 |
-| `totalBudget` | Object | 总预算信息，未设置时为 `null` |
-| `categoryBudgets` | Array | 分类预算列表 |
-| `id` | String | 预算ID |
-| `type` | String | 预算类型：`TOTAL` 总预算 / `CATEGORY` 分类预算 |
-| `categoryId` | String | 关联一级分类ID（分类预算时） |
-| `categoryName` | String | 关联分类名称 |
-| `amount` | String | 预算金额 |
-| `usedAmount` | String | 已用金额 |
-| `remainingAmount` | String | 剩余金额 |
-| `usageRate` | String | 使用比例（百分比，保留两位小数） |
+| 字段                | 类型   | 说明                                               |
+| ------------------- | ------ | -------------------------------------------------- |
+| `month`           | String | 预算月份                                           |
+| `totalBudget`     | Object | 总预算信息，未设置时为 `null`                    |
+| `categoryBudgets` | Array  | 分类预算列表                                       |
+| `id`              | String | 预算ID                                             |
+| `type`            | String | 预算类型：`TOTAL` 总预算 / `CATEGORY` 分类预算 |
+| `categoryId`      | String | 关联一级分类ID（分类预算时）                       |
+| `categoryName`    | String | 关联分类名称                                       |
+| `amount`          | String | 预算金额                                           |
+| `usedAmount`      | String | 已用金额                                           |
+| `remainingAmount` | String | 剩余金额                                           |
+| `usageRate`       | String | 使用比例（百分比，保留两位小数）                   |
 
 ---
 
@@ -1096,12 +1298,12 @@ GET /api/budgets?month=2026-05
 
 #### 请求参数（Body）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `month` | String | 是 | 预算月份，格式 `yyyy-MM` |
-| `type` | String | 是 | 预算类型：`TOTAL` 总预算 / `CATEGORY` 分类预算 |
-| `categoryId` | String | 条件必填 | 分类预算时必填，关联一级分类ID |
-| `amount` | String | 是 | 预算金额，精确到两位小数，必须大于0 |
+| 参数名         | 类型   | 必填     | 说明                                               |
+| -------------- | ------ | -------- | -------------------------------------------------- |
+| `month`      | String | 是       | 预算月份，格式 `yyyy-MM`                         |
+| `type`       | String | 是       | 预算类型：`TOTAL` 总预算 / `CATEGORY` 分类预算 |
+| `categoryId` | String | 条件必填 | 分类预算时必填，关联一级分类ID                     |
+| `amount`     | String | 是       | 预算金额，精确到两位小数，必须大于0                |
 
 #### 请求示例（总预算）
 
@@ -1144,11 +1346,11 @@ GET /api/budgets?month=2026-05
 
 #### 业务错误码
 
-| 错误码 | 说明 |
-|--------|------|
-| `400` | 预算金额必须大于0 |
+| 错误码  | 说明                                   |
+| ------- | -------------------------------------- |
+| `400` | 预算金额必须大于0                      |
 | `400` | 该月份已存在同类型预算，将覆盖原有预算 |
-| `404` | 分类不存在（分类预算时） |
+| `404` | 分类不存在（分类预算时）               |
 
 ---
 
@@ -1160,15 +1362,15 @@ GET /api/budgets?month=2026-05
 
 #### 请求参数（Path）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `id` | String | 是 | 预算ID |
+| 参数名 | 类型   | 必填 | 说明   |
+| ------ | ------ | ---- | ------ |
+| `id` | String | 是   | 预算ID |
 
 #### 请求参数（Body）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `amount` | String | 是 | 预算金额，精确到两位小数，必须大于0 |
+| 参数名     | 类型   | 必填 | 说明                                |
+| ---------- | ------ | ---- | ----------------------------------- |
+| `amount` | String | 是   | 预算金额，精确到两位小数，必须大于0 |
 
 #### 请求示例
 
@@ -1196,9 +1398,9 @@ GET /api/budgets?month=2026-05
 
 #### 业务错误码
 
-| 错误码 | 说明 |
-|--------|------|
-| `404` | 预算不存在 |
+| 错误码  | 说明              |
+| ------- | ----------------- |
+| `404` | 预算不存在        |
 | `400` | 预算金额必须大于0 |
 
 ---
@@ -1211,9 +1413,9 @@ GET /api/budgets?month=2026-05
 
 #### 请求参数（Path）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `id` | String | 是 | 预算ID |
+| 参数名 | 类型   | 必填 | 说明   |
+| ------ | ------ | ---- | ------ |
+| `id` | String | 是   | 预算ID |
 
 #### 请求示例
 
@@ -1233,8 +1435,8 @@ DELETE /api/budgets/bud_total_001
 
 #### 业务错误码
 
-| 错误码 | 说明 |
-|--------|------|
+| 错误码  | 说明       |
+| ------- | ---------- |
 | `404` | 预算不存在 |
 
 ---
@@ -1247,9 +1449,9 @@ DELETE /api/budgets/bud_total_001
 
 #### 请求参数（Query）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `month` | String | 是 | 预算月份，格式 `yyyy-MM` |
+| 参数名    | 类型   | 必填 | 说明                       |
+| --------- | ------ | ---- | -------------------------- |
+| `month` | String | 是   | 预算月份，格式 `yyyy-MM` |
 
 #### 请求示例
 
@@ -1304,10 +1506,10 @@ GET /api/budgets/execution?month=2026-05
 
 #### 字段说明
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `alertStatus` | String | 预警状态：`NORMAL` 正常（<80%）/ `WARNING` 接近预算（>=80%且<100%）/ `OVER` 已超预算（>=100%） |
-| `alertStatusName` | String | 预警状态名称 |
+| 字段                | 类型   | 说明                                                                                                 |
+| ------------------- | ------ | ---------------------------------------------------------------------------------------------------- |
+| `alertStatus`     | String | 预警状态：`NORMAL` 正常（<80%）/ `WARNING` 接近预算（>=80%且<100%）/ `OVER` 已超预算（>=100%） |
+| `alertStatusName` | String | 预警状态名称                                                                                         |
 
 ---
 
@@ -1316,28 +1518,28 @@ GET /api/budgets/execution?month=2026-05
 ### 8.1 多条件组合查询
 
 - **接口路径**：`GET /api/transactions`
-- **接口描述**：按时间、类型、账户、分类、金额、关键词等多条件组合查询交易流水，支持分页
+- **接口描述**：按时间、类型、账户、分类、金额、关键词等多条件组合查询交易流水，支持分页。所有筛选条件均为可选，不传则返回全部记录。
 - **请求头**：`Content-Type: application/json`、`Authorization: Bearer {accessToken}`
 
 #### 请求参数（Query）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `startDate` | String | 否 | 开始日期，格式 `yyyy-MM-dd` |
-| `endDate` | String | 否 | 结束日期，格式 `yyyy-MM-dd` |
-| `types` | String | 否 | 交易类型，多选用逗号分隔，如 `EXPENSE,TRANSFER` |
-| `accountIds` | String | 否 | 账户ID，多选用逗号分隔 |
-| `categoryIds` | String | 否 | 分类ID，多选用逗号分隔 |
-| `minAmount` | String | 否 | 最小金额 |
-| `maxAmount` | String | 否 | 最大金额 |
-| `keyword` | String | 否 | 关键词，模糊匹配备注内容 |
-| `pageNum` | Integer | 否 | 页码，默认 `1` |
-| `pageSize` | Integer | 否 | 每页条数，默认 `20` |
+| 参数名          | 类型    | 必填 | 说明                                                          |
+| --------------- | ------- | ---- | ------------------------------------------------------------- |
+| `startDate`   | String  | 否   | 开始日期，格式 `yyyy-MM-dd`，匹配该日起 00:00:00          |
+| `endDate`     | String  | 否   | 结束日期，格式 `yyyy-MM-dd`，匹配该日止 23:59:59          |
+| `types`       | String  | 否   | 交易类型，多选用逗号分隔，如 `INCOME,EXPENSE`             |
+| `accountIds`  | String  | 否   | 账户ID，多选用逗号分隔，如 `1,2,3`，匹配转出或转入账户 |
+| `categoryIds` | String  | 否   | 分类ID，多选用逗号分隔，如 `15,20`                        |
+| `minAmount`   | Number  | 否   | 最小金额，包含边界值                                          |
+| `maxAmount`   | Number  | 否   | 最大金额，包含边界值                                          |
+| `keyword`     | String  | 否   | 关键词，模糊匹配备注内容                                      |
+| `pageNum`     | Integer | 否   | 页码，默认 `1`                                              |
+| `pageSize`    | Integer | 否   | 每页条数，默认 `20`                                         |
 
 #### 请求示例
 
 ```
-GET /api/transactions?startDate=2026-05-01&endDate=2026-05-31&types=EXPENSE&accountIds=acc_001&pageNum=1&pageSize=20
+GET /api/transactions?startDate=2026-05-01&endDate=2026-05-31&types=EXPENSE&accountIds=1&pageNum=1&pageSize=20
 ```
 
 #### 响应示例（成功）
@@ -1349,20 +1551,20 @@ GET /api/transactions?startDate=2026-05-01&endDate=2026-05-31&types=EXPENSE&acco
   "data": {
     "list": [
       {
-        "id": "txn_001",
+        "id": 1,
         "type": "EXPENSE",
         "typeName": "支出",
-        "fromAccountId": "acc_001",
+        "fromAccountId": 1,
         "fromAccountName": "招商银行储蓄卡",
         "toAccountId": null,
         "toAccountName": null,
-        "amount": "35.50",
-        "categoryId": "cat_food_001",
-        "categoryName": "餐饮 > 外卖",
+        "amount": 35.50,
+        "categoryId": 20,
+        "categoryParentName": "餐饮",
+        "categoryName": "外卖",
         "transactionTime": "2026-05-05 12:30:00",
         "remark": "午餐外卖",
-        "createTime": "2026-05-05 12:31:00",
-        "updateTime": "2026-05-05 12:31:00"
+        "createTime": "2026-05-05 12:31:00"
       }
     ],
     "pageNum": 1,
@@ -1373,27 +1575,46 @@ GET /api/transactions?startDate=2026-05-01&endDate=2026-05-31&types=EXPENSE&acco
 }
 ```
 
+#### 响应列表字段说明
+
+| 字段                 | 类型    | 说明                                                    |
+| -------------------- | ------- | ------------------------------------------------------- |
+| `id`               | Long    | 交易记录ID                                              |
+| `type`             | String  | 交易类型编码：`INCOME` / `EXPENSE` / `TRANSFER` |
+| `typeName`         | String  | 交易类型名称                                            |
+| `fromAccountId`    | Long    | 转出账户ID，收入时为 `null`                           |
+| `fromAccountName`  | String  | 转出账户名称，收入时为 `null`                         |
+| `toAccountId`      | Long    | 转入账户ID，支出时为 `null`                           |
+| `toAccountName`    | String  | 转入账户名称，支出时为 `null`                         |
+| `amount`           | Number  | 交易金额                                                |
+| `categoryId`       | Long    | 分类ID                                                  |
+| `categoryParentName` | String | 一级分类名称                                           |
+| `categoryName`     | String  | 二级分类名称（叶节点）                                   |
+| `transactionTime`  | String  | 交易时间，格式 `yyyy-MM-dd HH:mm:ss`                  |
+| `remark`           | String  | 备注                                                    |
+| `createTime`       | String  | 创建时间，格式 `yyyy-MM-dd HH:mm:ss`                  |
+
 ---
 
 ### 8.2 导出流水
 
 - **接口路径**：`GET /api/transactions/export`
-- **接口描述**：将当前筛选条件下的交易记录导出为 Excel 或 PDF 文件
+- **接口描述**：将当前筛选条件下的交易记录导出为 Excel 或 PDF 文件，筛选参数与 8.1 查询接口一致
 - **请求头**：`Content-Type: application/json`、`Authorization: Bearer {accessToken}`
 
 #### 请求参数（Query）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `startDate` | String | 否 | 开始日期，格式 `yyyy-MM-dd` |
-| `endDate` | String | 否 | 结束日期，格式 `yyyy-MM-dd` |
-| `types` | String | 否 | 交易类型，多选用逗号分隔 |
-| `accountIds` | String | 否 | 账户ID，多选用逗号分隔 |
-| `categoryIds` | String | 否 | 分类ID，多选用逗号分隔 |
-| `minAmount` | String | 否 | 最小金额 |
-| `maxAmount` | String | 否 | 最大金额 |
-| `keyword` | String | 否 | 关键词，模糊匹配备注内容 |
-| `format` | String | 是 | 导出格式：`excel` / `pdf` |
+| 参数名          | 类型   | 必填 | 说明                              |
+| --------------- | ------ | ---- | --------------------------------- |
+| `startDate`   | String | 否   | 开始日期，格式 `yyyy-MM-dd`     |
+| `endDate`     | String | 否   | 结束日期，格式 `yyyy-MM-dd`     |
+| `types`       | String | 否   | 交易类型，多选用逗号分隔          |
+| `accountIds`  | String | 否   | 账户ID，多选用逗号分隔            |
+| `categoryIds` | String | 否   | 分类ID，多选用逗号分隔            |
+| `minAmount`   | Number | 否   | 最小金额                          |
+| `maxAmount`   | Number | 否   | 最大金额                          |
+| `keyword`     | String | 否   | 关键词，模糊匹配备注内容          |
+| `format`      | String | 是   | 导出格式：`excel` / `pdf` |
 
 #### 请求示例
 
@@ -1403,7 +1624,10 @@ GET /api/transactions/export?startDate=2026-05-01&endDate=2026-05-31&format=exce
 
 #### 响应示例（成功）
 
-文件流下载，响应头 `Content-Disposition: attachment; filename="transactions_20260505.xlsx"`
+文件流下载，响应头 `Content-Disposition: attachment; filename="交易流水.xlsx"`
+
+- Excel 格式：`Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`
+- PDF 格式：`Content-Type: application/pdf`
 
 #### 响应示例（失败）
 
@@ -1417,9 +1641,9 @@ GET /api/transactions/export?startDate=2026-05-01&endDate=2026-05-31&format=exce
 
 #### 业务错误码
 
-| 错误码 | 说明 |
-|--------|------|
-| `400` | 导出格式不合法 |
+| 错误码  | 说明             |
+| ------- | ---------------- |
+| `400` | 导出格式不合法   |
 | `400` | 没有可导出的数据 |
 
 ---
@@ -1434,9 +1658,9 @@ GET /api/transactions/export?startDate=2026-05-01&endDate=2026-05-31&format=exce
 
 #### 请求参数（Query）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `date` | String | 否 | 截止日期，格式 `yyyy-MM-dd`，默认当天 |
+| 参数名   | 类型   | 必填 | 说明                                    |
+| -------- | ------ | ---- | --------------------------------------- |
+| `date` | String | 否   | 截止日期，格式 `yyyy-MM-dd`，默认当天 |
 
 #### 请求示例
 
@@ -1531,16 +1755,16 @@ GET /api/reports/balance-sheet?date=2026-05-05
 
 #### 字段说明
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `date` | String | 统计截止日期 |
-| `totalAssets` | String | 总资产（各账户当前余额之和） |
-| `groupSummary` | Array | 按账户类型分组汇总 |
-| `type` | String | 账户类型编码 |
-| `typeName` | String | 账户类型名称 |
-| `totalAmount` | String | 该类型账户余额合计 |
-| `percentage` | String | 该类型资产占比（%） |
-| `accounts` | Array | 该类型下的账户明细 |
+| 字段             | 类型   | 说明                         |
+| ---------------- | ------ | ---------------------------- |
+| `date`         | String | 统计截止日期                 |
+| `totalAssets`  | String | 总资产（各账户当前余额之和） |
+| `groupSummary` | Array  | 按账户类型分组汇总           |
+| `type`         | String | 账户类型编码                 |
+| `typeName`     | String | 账户类型名称                 |
+| `totalAmount`  | String | 该类型账户余额合计           |
+| `percentage`   | String | 该类型资产占比（%）          |
+| `accounts`     | Array  | 该类型下的账户明细           |
 
 ---
 
@@ -1552,9 +1776,9 @@ GET /api/reports/balance-sheet?date=2026-05-05
 
 #### 请求参数（Query）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `month` | String | 是 | 目标月份，格式 `yyyy-MM` |
+| 参数名    | 类型   | 必填 | 说明                       |
+| --------- | ------ | ---- | -------------------------- |
+| `month` | String | 是   | 目标月份，格式 `yyyy-MM` |
 
 #### 请求示例
 
@@ -1618,15 +1842,15 @@ GET /api/reports/income-expense?month=2026-05
 
 #### 字段说明
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `month` | String | 统计月份 |
-| `totalIncome` | String | 总收入 |
-| `totalExpense` | String | 总支出 |
-| `balance` | String | 结余（总收入 - 总支出） |
-| `incomeDetails` | Array | 收入分类明细 |
-| `expenseDetails` | Array | 支出分类明细 |
-| `transactionCount` | Integer | 该分类交易笔数 |
+| 字段                 | 类型    | 说明                    |
+| -------------------- | ------- | ----------------------- |
+| `month`            | String  | 统计月份                |
+| `totalIncome`      | String  | 总收入                  |
+| `totalExpense`     | String  | 总支出                  |
+| `balance`          | String  | 结余（总收入 - 总支出） |
+| `incomeDetails`    | Array   | 收入分类明细            |
+| `expenseDetails`   | Array   | 支出分类明细            |
+| `transactionCount` | Integer | 该分类交易笔数          |
 
 ---
 
@@ -1638,9 +1862,9 @@ GET /api/reports/income-expense?month=2026-05
 
 #### 请求参数（Query）
 
-| 参数名 | 类型 | 必填 | 说明 |
-|--------|------|------|------|
-| `month` | String | 是 | 目标月份，格式 `yyyy-MM` |
+| 参数名    | 类型   | 必填 | 说明                       |
+| --------- | ------ | ---- | -------------------------- |
+| `month` | String | 是   | 目标月份，格式 `yyyy-MM` |
 
 #### 请求示例
 
@@ -1703,17 +1927,17 @@ GET /api/reports/cash-flow?month=2026-05
 
 #### 字段说明
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `month` | String | 统计月份 |
-| `accounts` | Array | 各账户现金流量明细 |
-| `openingBalance` | String | 期初余额 |
-| `totalInflow` | String | 本期流入 |
-| `totalOutflow` | String | 本期流出 |
-| `netFlow` | String | 净流量（流入 - 流出） |
-| `closingBalance` | String | 期末余额 |
-| `incomeSourceAnalysis` | Array | 流入来源分析（收入分类占比） |
-| `expenseDestinationAnalysis` | Array | 流出去向分析（支出分类占比） |
+| 字段                           | 类型   | 说明                         |
+| ------------------------------ | ------ | ---------------------------- |
+| `month`                      | String | 统计月份                     |
+| `accounts`                   | Array  | 各账户现金流量明细           |
+| `openingBalance`             | String | 期初余额                     |
+| `totalInflow`                | String | 本期流入                     |
+| `totalOutflow`               | String | 本期流出                     |
+| `netFlow`                    | String | 净流量（流入 - 流出）        |
+| `closingBalance`             | String | 期末余额                     |
+| `incomeSourceAnalysis`       | Array  | 流入来源分析（收入分类占比） |
+| `expenseDestinationAnalysis` | Array  | 流出去向分析（支出分类占比） |
 
 ---
 
@@ -1775,26 +1999,26 @@ GET /api/dashboard/summary
 
 #### 字段说明
 
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| `today` | Object | 今日摘要 |
-| `today.income` | String | 今日收入 |
-| `today.expense` | String | 今日支出 |
-| `today.count` | Integer | 今日交易笔数 |
-| `week` | Object | 本周摘要 |
-| `week.income` | String | 本周收入 |
-| `week.expense` | String | 本周支出 |
-| `week.count` | Integer | 本周交易笔数 |
-| `week.dailyAverage` | String | 日均支出 |
-| `month` | Object | 本月摘要 |
-| `month.income` | String | 本月收入 |
-| `month.expense` | String | 本月支出 |
-| `month.balance` | String | 本月结余 |
-| `month.budgetExecutionRate` | String | 预算执行率（%），未设置预算时为 `null` |
-| `budgetAlert` | Object | 预算执行提醒 |
-| `budgetAlert.hasBudget` | Boolean | 是否已设置本月预算 |
-| `budgetAlert.alertStatus` | String | 预警状态：`NORMAL` / `WARNING` / `OVER` |
-| `budgetAlert.alertStatusName` | String | 预警状态名称 |
+| 字段                            | 类型    | 说明                                          |
+| ------------------------------- | ------- | --------------------------------------------- |
+| `today`                       | Object  | 今日摘要                                      |
+| `today.income`                | String  | 今日收入                                      |
+| `today.expense`               | String  | 今日支出                                      |
+| `today.count`                 | Integer | 今日交易笔数                                  |
+| `week`                        | Object  | 本周摘要                                      |
+| `week.income`                 | String  | 本周收入                                      |
+| `week.expense`                | String  | 本周支出                                      |
+| `week.count`                  | Integer | 本周交易笔数                                  |
+| `week.dailyAverage`           | String  | 日均支出                                      |
+| `month`                       | Object  | 本月摘要                                      |
+| `month.income`                | String  | 本月收入                                      |
+| `month.expense`               | String  | 本月支出                                      |
+| `month.balance`               | String  | 本月结余                                      |
+| `month.budgetExecutionRate`   | String  | 预算执行率（%），未设置预算时为 `null`      |
+| `budgetAlert`                 | Object  | 预算执行提醒                                  |
+| `budgetAlert.hasBudget`       | Boolean | 是否已设置本月预算                            |
+| `budgetAlert.alertStatus`     | String  | 预警状态：`NORMAL` / `WARNING` / `OVER` |
+| `budgetAlert.alertStatusName` | String  | 预警状态名称                                  |
 
 ---
 
@@ -1804,47 +2028,47 @@ GET /api/dashboard/summary
 
 #### 账户类型（AccountType）
 
-| 编码 | 名称 |
-|------|------|
-| `CASH` | 现金 |
+| 编码             | 名称       |
+| ---------------- | ---------- |
+| `CASH`         | 现金       |
 | `BANK_SAVINGS` | 银行储蓄卡 |
-| `CREDIT_CARD` | 信用卡 |
-| `ALIPAY` | 支付宝 |
-| `WECHAT` | 微信 |
+| `CREDIT_CARD`  | 信用卡     |
+| `ALIPAY`       | 支付宝     |
+| `WECHAT`       | 微信       |
 
 #### 交易类型（TransactionType）
 
-| 编码 | 名称 |
-|------|------|
-| `INCOME` | 收入 |
-| `EXPENSE` | 支出 |
+| 编码         | 名称 |
+| ------------ | ---- |
+| `INCOME`   | 收入 |
+| `EXPENSE`  | 支出 |
 | `TRANSFER` | 转账 |
 
 #### 分类类型（CategoryType）
 
-| 编码 | 名称 |
-|------|------|
-| `INCOME` | 收入 |
+| 编码        | 名称 |
+| ----------- | ---- |
+| `INCOME`  | 收入 |
 | `EXPENSE` | 支出 |
 
 #### 账户状态（AccountStatus）
 
-| 编码 | 名称 |
-|------|------|
-| `ACTIVE` | 正常 |
+| 编码         | 名称 |
+| ------------ | ---- |
+| `ACTIVE`   | 正常 |
 | `DISABLED` | 停用 |
 
 #### 预算类型（BudgetType）
 
-| 编码 | 名称 |
-|------|------|
-| `TOTAL` | 总预算 |
+| 编码         | 名称     |
+| ------------ | -------- |
+| `TOTAL`    | 总预算   |
 | `CATEGORY` | 分类预算 |
 
 #### 预警状态（AlertStatus）
 
-| 编码 | 名称 | 说明 |
-|------|------|------|
-| `NORMAL` | 正常 | 预算消耗 < 80% |
+| 编码        | 名称     | 说明                      |
+| ----------- | -------- | ------------------------- |
+| `NORMAL`  | 正常     | 预算消耗 < 80%            |
 | `WARNING` | 接近预算 | 预算消耗 >= 80% 且 < 100% |
-| `OVER` | 已超预算 | 预算消耗 >= 100% |
+| `OVER`    | 已超预算 | 预算消耗 >= 100%          |
